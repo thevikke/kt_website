@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:kt_website/animations/animations.dart';
 import 'components/components.dart';
 import 'utils/utils.dart';
 
@@ -10,6 +11,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
+  WebPageEnterAnimation animation;
 
   @override
   void initState() {
@@ -19,6 +21,7 @@ class _ProfilePageState extends State<ProfilePage>
       vsync: this,
     );
     _controller.forward();
+    animation = WebPageEnterAnimation(_controller);
     super.initState();
   }
 
@@ -32,23 +35,45 @@ class _ProfilePageState extends State<ProfilePage>
   Widget build(BuildContext context) {
     return ResponsiveWidget(
       largeScreen: Scaffold(
-        backgroundColor: Colors.black,
-        body: SingleChildScrollView(
-          child: AnimatedPadding(
-            duration: Duration(seconds: 1),
-            padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.1),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.1,
+        backgroundColor: Colors.blue,
+        body: Stack(
+          children: [
+            SingleChildScrollView(
+              child: AnimatedPadding(
+                duration: Duration(seconds: 1),
+                padding:
+                    EdgeInsets.all(MediaQuery.of(context).size.height * 0.1),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.1,
+                    ),
+                    NavHeader(),
+                    ProfileInfo(),
+                    SocialLinks(),
+                  ],
                 ),
-                NavHeader(),
-                ProfileInfo(),
-                SocialLinks(),
-              ],
+              ),
             ),
-          ),
+            Transform.translate(
+              offset: Offset(0, -MediaQuery.of(context).size.height),
+              child: Container(
+                color: Colors.black,
+                width: MediaQuery.of(context).size.width / 2,
+                height: MediaQuery.of(context).size.height,
+              ),
+            ),
+            Transform.translate(
+              offset: Offset(MediaQuery.of(context).size.width / 2,
+                  MediaQuery.of(context).size.height),
+              child: Container(
+                color: Colors.black,
+                width: MediaQuery.of(context).size.width / 2,
+                height: MediaQuery.of(context).size.height,
+              ),
+            ),
+          ],
         ),
       ),
     );
