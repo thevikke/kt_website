@@ -36,8 +36,8 @@ class WebPageEnterAnimation {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.000,
               0.800,
+              1.000,
               curve: Curves.ease,
             ),
           ),

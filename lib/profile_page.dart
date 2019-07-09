@@ -1,4 +1,5 @@
 import 'package:flutter_web/material.dart';
+import 'package:flutter_web_ui/ui.dart' as ui;
 import 'animations/animations.dart';
 import 'components/components.dart';
 import 'utils/utils.dart';
@@ -30,6 +31,15 @@ class ProfilePage extends StatelessWidget {
                       fit: BoxFit.fill,
                     ),
                   )),
+                ),
+                BackdropFilter(
+                  filter: ui.ImageFilter.blur(
+                    sigmaX: animation.backdropBlur.value,
+                    sigmaY: animation.backdropBlur.value,
+                  ),
+                  child: Container(
+                    color: Colors.black.withOpacity(0.5),
+                  ),
                 ),
                 SingleChildScrollView(
                   child: AnimatedPadding(
