@@ -4,23 +4,33 @@ import 'components/components.dart';
 import 'utils/utils.dart';
 
 class ProfilePage extends StatelessWidget {
-  ProfilePage(
-    this.controller,
-  ) : animation = WebPageEnterAnimation(controller);
+  ProfilePage(this.controller, this.size)
+      : animation = WebPageEnterAnimation(controller, size);
 
   final AnimationController controller;
   final WebPageEnterAnimation animation;
-
+  final Size size;
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
       largeScreen: Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.grey,
         body: AnimatedBuilder(
           animation: controller,
           builder: (context, widget) {
             return Stack(
               children: [
+                Opacity(
+                  opacity: animation.backdropOpacity.value,
+                  child: Container(
+                      decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("Background.jpg"),
+                      alignment: Alignment.center,
+                      fit: BoxFit.fill,
+                    ),
+                  )),
+                ),
                 SingleChildScrollView(
                   child: AnimatedPadding(
                     duration: Duration(seconds: 1),
@@ -32,9 +42,9 @@ class ProfilePage extends StatelessWidget {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.1,
                         ),
-                        NavHeader(),
-                        ProfileInfo(),
-                        SocialLinks(),
+                        // NavHeader(),
+                        // ProfileInfo(),
+                        // SocialLinks(),
                       ],
                     ),
                   ),
@@ -57,6 +67,16 @@ class ProfilePage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 2,
                     height: MediaQuery.of(context).size.height,
                     color: Colors.black,
+                  ),
+                ),
+                Center(
+                  child: Opacity(
+                    opacity: animation.fadeNameAnimation.value,
+                    child: Text(
+                      "KRISTIAN TUUSJÄRVI",
+                      style:
+                          TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 )
               ],

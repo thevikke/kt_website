@@ -4,7 +4,16 @@ import 'package:kt_website/profile_page.dart';
 import 'package:flutter_web_ui/ui.dart' as ui;
 
 main() async {
-  runApp(App());
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          brightness: Brightness.dark,
+          primaryColor: Colors.black,
+          fontFamily: "GoogleSansRegular"),
+      home: App(),
+    ),
+  );
 }
 
 class App extends StatefulWidget {
@@ -19,7 +28,7 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 2000),
+      duration: const Duration(milliseconds: 4000),
       vsync: this,
     );
     _controller.forward();
@@ -34,13 +43,11 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          brightness: Brightness.dark,
-          primaryColor: Colors.black,
-          fontFamily: "GoogleSansRegular"),
-      home: ProfilePage(_controller),
+    var size = MediaQuery.of(context).size;
+    return Builder(
+      builder: (context) {
+        return ProfilePage(_controller, size);
+      },
     );
   }
 }
