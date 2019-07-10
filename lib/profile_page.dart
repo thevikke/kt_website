@@ -37,6 +37,7 @@ class ProfilePage extends StatelessWidget {
                     sigmaX: animation.backdropBlur.value,
                     sigmaY: animation.backdropBlur.value,
                   ),
+                  ///! Only affects the children of Container
                   child: Container(
                     color: Colors.black.withOpacity(0.5),
                   ),
