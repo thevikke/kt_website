@@ -6,8 +6,8 @@ class WebPageEnterAnimation {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.300,
-              0.500,
+              0.200,
+              0.400,
               curve: Curves.ease,
             ),
           ),
@@ -16,29 +16,19 @@ class WebPageEnterAnimation {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.100,
-              0.500,
+              0.000,
+              0.350,
               curve: Curves.ease,
             ),
           ),
         ),
-        backdropOpacity = Tween(begin: 0.5, end: 1.0).animate(
+        backgroundOpacity = Tween(begin: 1.0, end: 0.5).animate(
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.500,
+              0.400,
               0.800,
-              curve: Curves.ease,
-            ),
-          ),
-        ),
-        backdropBlur = Tween(begin: 0.0, end: 5.0).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: Interval(
-              0.800,
-              1.000,
-              curve: Curves.ease,
+              curve: Curves.decelerate,
             ),
           ),
         );
@@ -46,7 +36,7 @@ class WebPageEnterAnimation {
   final AnimationController controller;
   final Animation slideAnimation;
   final Animation fadeNameAnimation;
-  final Animation<double> backdropOpacity;
-  final Animation<double> backdropBlur;
+  final Animation<double> backgroundOpacity;
+
   final Size size;
 }

@@ -1,5 +1,6 @@
+import 'dart:html' as prefix0;
+
 import 'package:flutter_web/material.dart';
-import 'package:flutter_web_ui/ui.dart' as ui;
 import 'animations/animations.dart';
 import 'components/components.dart';
 import 'utils/utils.dart';
@@ -15,30 +16,22 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveWidget(
       largeScreen: Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.blueGrey,
         body: AnimatedBuilder(
           animation: controller,
           builder: (context, widget) {
             return Stack(
               children: [
                 Opacity(
-                  opacity: animation.backdropOpacity.value,
+                  opacity: animation.backgroundOpacity.value,
                   child: Container(
-                      decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage("Background.jpg"),
-                      alignment: Alignment.center,
-                      fit: BoxFit.fill,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("background2.jpg"),
+                        alignment: Alignment.center,
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                  )),
-                ),
-                BackdropFilter(
-                  filter: ui.ImageFilter.blur(
-                    sigmaX: animation.backdropBlur.value,
-                    sigmaY: animation.backdropBlur.value,
-                  ),
-                  child: Container(
-                    color: Colors.black.withOpacity(0.5),
                   ),
                 ),
                 SingleChildScrollView(
