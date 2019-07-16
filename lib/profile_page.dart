@@ -6,17 +6,18 @@ import 'components/components.dart';
 import 'utils/utils.dart';
 
 class ProfilePage extends StatelessWidget {
-  ProfilePage(this.controller, this.size)
+  ProfilePage(this.controller, this.size, this.background)
       : animation = WebPageEnterAnimation(controller, size);
 
   final AnimationController controller;
   final WebPageEnterAnimation animation;
   final Size size;
+  final DecorationImage background;
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
       largeScreen: Scaffold(
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Colors.black,
         body: AnimatedBuilder(
           animation: controller,
           builder: (context, widget) {
@@ -26,11 +27,7 @@ class ProfilePage extends StatelessWidget {
                   opacity: animation.backgroundOpacity.value,
                   child: Container(
                     decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("background2.jpg"),
-                        alignment: Alignment.center,
-                        fit: BoxFit.fill,
-                      ),
+                      image: background,
                     ),
                   ),
                 ),
@@ -45,9 +42,9 @@ class ProfilePage extends StatelessWidget {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.1,
                         ),
-                        // NavHeader(),
-                        // ProfileInfo(),
-                        // SocialLinks(),
+                        NavHeader(),
+                        ProfileInfo(),
+                        //SocialLinks(),
                       ],
                     ),
                   ),

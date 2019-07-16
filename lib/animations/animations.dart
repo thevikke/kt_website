@@ -31,12 +31,23 @@ class WebPageEnterAnimation {
               curve: Curves.decelerate,
             ),
           ),
+        ),
+        pictureSize = Tween(begin: 0.0, end: 1.0).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.100,
+              0.400,
+              curve: Curves.elasticOut,
+            ),
+          ),
         );
 
   final AnimationController controller;
   final Animation slideAnimation;
   final Animation fadeNameAnimation;
-  final Animation<double> backgroundOpacity;
+  final Animation backgroundOpacity;
+  final Animation pictureSize;
 
   final Size size;
 }

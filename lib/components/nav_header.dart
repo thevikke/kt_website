@@ -16,16 +16,16 @@ class NavHeader extends StatelessWidget {
           if (!ResponsiveWidget.isSmallScreen(context))
             Row(
               children: <Widget>[
-                NavButton(
-                  text: "about",
+                FlatButton(
+                  child: Text("hello"),
                   onPressed: () {},
                 ),
-                NavButton(
-                  text: "work",
+                FlatButton(
+                  child: Text("hello"),
                   onPressed: () {},
                 ),
-                NavButton(
-                  text: "contact",
+                FlatButton(
+                  child: Text("hello"),
                   onPressed: () {},
                 ),
               ],

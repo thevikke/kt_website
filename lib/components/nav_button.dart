@@ -6,11 +6,9 @@ class NavButton extends StatelessWidget {
   final Color color;
 
   const NavButton(
-      {Key key,
-      @required this.text,
+      {@required this.text,
       @required this.onPressed,
-      this.color = Colors.blue})
-      : super(key: key);
+      this.color = Colors.blue});
 
   @override
   Widget build(BuildContext context) {

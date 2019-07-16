@@ -12,20 +12,17 @@ class SocialLinks extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              NavButton(
-                text: "Github",
+              FlatButton(
+                child: Text("hello"),
                 onPressed: () {},
-                color: Colors.blue,
               ),
-              NavButton(
-                text: "Twitter",
+              FlatButton(
+                child: Text("hello"),
                 onPressed: () {},
-                color: Colors.blue,
               ),
-              NavButton(
-                text: "Facebook",
+              FlatButton(
+                child: Text("hello"),
                 onPressed: () {},
-                color: Colors.blue,
               ),
             ],
           ),
@@ -41,20 +38,17 @@ class SocialLinks extends StatelessWidget {
       smallScreen: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          NavButton(
-            text: "Github",
+          FlatButton(
+            child: Text("hello"),
             onPressed: () {},
-            color: Colors.blue,
           ),
-          NavButton(
-            text: "Twitter",
+          FlatButton(
+            child: Text("hello"),
             onPressed: () {},
-            color: Colors.blue,
           ),
-          NavButton(
-            text: "Facebook",
+          FlatButton(
+            child: Text("hello"),
             onPressed: () {},
-            color: Colors.blue,
           ),
           Text(
             "Kristian Tuusjärvi ©️2019",
