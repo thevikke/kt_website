@@ -1,7 +1,14 @@
 import 'package:flutter_web/material.dart';
+import 'package:kt_website/animations/animations.dart';
 import 'package:kt_website/profile_page.dart';
+import 'package:flutter_web_ui/ui.dart' as ui;
 
+DecorationImage image;
 main() async {
+  image = DecorationImage(
+      image: AssetImage("background2.jpg"),
+      fit: BoxFit.fill,
+      alignment: Alignment.center);
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -21,15 +28,11 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> with SingleTickerProviderStateMixin {
   AnimationController _controller;
-  DecorationImage _image;
+
   @override
   void initState() {
     super.initState();
-    _image = DecorationImage(
-      image: AssetImage("background2.jpg"),
-      alignment: Alignment.center,
-      fit: BoxFit.fill,
-    );
+
     _controller = AnimationController(
       duration: const Duration(milliseconds: 4000),
       vsync: this,
@@ -48,7 +51,7 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
     var size = MediaQuery.of(context).size;
     return Builder(
       builder: (context) {
-        return ProfilePage(_controller, size, _image);
+        return ProfilePage(_controller, size, image);
       },
     );
   }

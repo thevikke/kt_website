@@ -43,7 +43,16 @@ class ProfilePage extends StatelessWidget {
                           height: MediaQuery.of(context).size.height * 0.1,
                         ),
                         NavHeader(),
-                        ProfileInfo(),
+                        Transform(
+                          transform: Matrix4.diagonal3Values(
+                            animation.pictureSize.value,
+                            animation.pictureSize.value,
+                            1.0,
+                          ),
+                          alignment: Alignment.center,
+                          child: ProfilePicture(),
+                        ),
+                        // ProfileInfo(),
                         //SocialLinks(),
                       ],
                     ),

@@ -6,8 +6,8 @@ class WebPageEnterAnimation {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.200,
               0.400,
+              0.600,
               curve: Curves.ease,
             ),
           ),
@@ -16,18 +16,18 @@ class WebPageEnterAnimation {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.000,
-              0.350,
+              0.200,
+              0.400,
               curve: Curves.ease,
             ),
           ),
         ),
-        backgroundOpacity = Tween(begin: 1.0, end: 0.5).animate(
+        backgroundOpacity = Tween(begin: 1.0, end: 0.4).animate(
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.400,
-              0.800,
+              0.600,
+              1.000,
               curve: Curves.decelerate,
             ),
           ),
@@ -36,8 +36,8 @@ class WebPageEnterAnimation {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.100,
-              0.400,
+              0.600,
+              0.900,
               curve: Curves.elasticOut,
             ),
           ),
