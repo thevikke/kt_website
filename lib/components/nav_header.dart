@@ -20,7 +20,7 @@ class NavHeader extends StatelessWidget {
         children: <Widget>[
           Opacity(
             opacity: animation.logoAnimation.value,
-            child: PKDot(),
+            child: Logo(),
           ),
           if (!ResponsiveWidget.isSmallScreen(context))
             Row(
