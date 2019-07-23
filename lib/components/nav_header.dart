@@ -18,8 +18,10 @@ class NavHeader extends StatelessWidget {
             : MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          PKDot(),
-//    Spacer(),
+          Opacity(
+            opacity: animation.logoAnimation.value,
+            child: PKDot(),
+          ),
           if (!ResponsiveWidget.isSmallScreen(context))
             Row(
               children: <Widget>[

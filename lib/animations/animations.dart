@@ -81,6 +81,16 @@ class WebPageEnterAnimation {
               curve: Curves.bounceOut,
             ),
           ),
+        ),
+        logoAnimation = Tween(begin: 0.0, end: 1.0).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.700,
+              1.000,
+              curve: Curves.easeIn,
+            ),
+          ),
         );
 
   final AnimationController controller;
@@ -92,5 +102,6 @@ class WebPageEnterAnimation {
   final Animation navBtnAnimation2;
   final Animation navBtnAnimation3;
   final Animation navBtnAnimation4;
+  final Animation logoAnimation;
   final Size size;
 }
