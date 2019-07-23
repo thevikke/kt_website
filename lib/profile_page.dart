@@ -1,4 +1,6 @@
+import 'package:flutter_web/cupertino.dart';
 import 'package:flutter_web/material.dart';
+import 'package:flutter_web/rendering.dart';
 import 'animations/animations.dart';
 import 'components/components.dart';
 import 'utils/utils.dart';
@@ -10,6 +12,19 @@ class ProfilePage extends StatelessWidget {
   final AnimationController controller;
   final WebPageEnterAnimation animation;
   final Size size;
+
+  List<String> tests = [
+    "terve",
+    "terve",
+    "terve",
+    "terve",
+    "terve",
+    "terve",
+    "terve",
+    "terve",
+    "terve",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -43,14 +58,45 @@ class ProfilePage extends StatelessWidget {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.1,
                         ),
-                        Transform(
-                          transform: Matrix4.diagonal3Values(
-                            animation.pictureSize.value,
-                            animation.pictureSize.value,
-                            1.0,
-                          ),
-                          alignment: Alignment.center,
-                          child: ProfilePicture(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Transform(
+                              transform: Matrix4.diagonal3Values(
+                                animation.pictureSize.value,
+                                animation.pictureSize.value,
+                                1.0,
+                              ),
+                              alignment: Alignment.center,
+                              child: ProfilePicture(),
+                            ),
+                            Container(
+                              width: 300,
+                              height: 300,
+                              child: AnimatedList(
+                                scrollDirection: Axis.horizontal,
+                                initialItemCount: tests.length,
+                                itemBuilder: (context, index, animation) {
+                                  return SlideTransition(
+                                    position: animation.drive(
+                                      Tween<Offset>(
+                                        begin: Offset(50, 50),
+                                        end: Offset(0.0, 0.0),
+                                      ),
+                                    ),
+                                    child: Card(
+                                      child: Center(
+                                        child: Text(
+                                          tests[index],
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            )
+                          ],
                         ),
 
                         // ProfileInfo(),

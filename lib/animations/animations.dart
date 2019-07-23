@@ -91,6 +91,17 @@ class WebPageEnterAnimation {
               curve: Curves.easeIn,
             ),
           ),
+        ),
+        listviewAnimation =
+            Tween<Offset>(begin: Offset(50, 50), end: Offset(0.0, 0.0)).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.500,
+              1.000,
+              curve: Curves.easeIn,
+            ),
+          ),
         );
 
   final AnimationController controller;
@@ -103,5 +114,7 @@ class WebPageEnterAnimation {
   final Animation navBtnAnimation3;
   final Animation navBtnAnimation4;
   final Animation logoAnimation;
+  final Animation<Offset> listviewAnimation;
+
   final Size size;
 }
