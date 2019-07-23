@@ -3,12 +3,7 @@ import 'package:kt_website/animations/animations.dart';
 import 'package:kt_website/profile_page.dart';
 import 'package:flutter_web_ui/ui.dart' as ui;
 
-DecorationImage image;
 main() async {
-  image = DecorationImage(
-      image: AssetImage("background2.jpg"),
-      fit: BoxFit.fill,
-      alignment: Alignment.center);
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -51,7 +46,7 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
     var size = MediaQuery.of(context).size;
     return Builder(
       builder: (context) {
-        return ProfilePage(_controller, size, image);
+        return ProfilePage(_controller, size);
       },
     );
   }

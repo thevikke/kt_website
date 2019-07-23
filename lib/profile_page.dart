@@ -6,13 +6,12 @@ import 'components/components.dart';
 import 'utils/utils.dart';
 
 class ProfilePage extends StatelessWidget {
-  ProfilePage(this.controller, this.size, this.background)
+  ProfilePage(this.controller, this.size)
       : animation = WebPageEnterAnimation(controller, size);
 
   final AnimationController controller;
   final WebPageEnterAnimation animation;
   final Size size;
-  final DecorationImage background;
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -27,22 +26,25 @@ class ProfilePage extends StatelessWidget {
                   opacity: animation.backgroundOpacity.value,
                   child: Container(
                     decoration: BoxDecoration(
-                      image: background,
+                      image: DecorationImage(
+                          image: AssetImage("background2.jpg"),
+                          fit: BoxFit.fill,
+                          alignment: Alignment.center),
                     ),
                   ),
                 ),
                 SingleChildScrollView(
                   child: AnimatedPadding(
-                    duration: Duration(seconds: 1),
+                    duration: Duration(milliseconds: 500),
                     padding: EdgeInsets.all(
                         MediaQuery.of(context).size.height * 0.1),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        NavHeader(controller, size),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.1,
                         ),
-                        NavHeader(),
                         Transform(
                           transform: Matrix4.diagonal3Values(
                             animation.pictureSize.value,
@@ -52,6 +54,7 @@ class ProfilePage extends StatelessWidget {
                           alignment: Alignment.center,
                           child: ProfilePicture(),
                         ),
+
                         // ProfileInfo(),
                         //SocialLinks(),
                       ],

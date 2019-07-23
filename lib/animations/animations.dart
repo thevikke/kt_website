@@ -6,8 +6,8 @@ class WebPageEnterAnimation {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.400,
-              0.600,
+              0.300,
+              0.500,
               curve: Curves.ease,
             ),
           ),
@@ -36,9 +36,49 @@ class WebPageEnterAnimation {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
+              0.400,
+              0.800,
+              curve: Curves.elasticOut,
+            ),
+          ),
+        ),
+        navBtnAnimation1 = Tween(begin: -100, end: 0.0).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.400,
+              0.700,
+              curve: Curves.bounceOut,
+            ),
+          ),
+        ),
+        navBtnAnimation2 = Tween(begin: -100, end: 0.0).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.500,
+              0.800,
+              curve: Curves.bounceOut,
+            ),
+          ),
+        ),
+        navBtnAnimation3 = Tween(begin: -100, end: 0.0).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
               0.600,
               0.900,
-              curve: Curves.elasticOut,
+              curve: Curves.bounceOut,
+            ),
+          ),
+        ),
+        navBtnAnimation4 = Tween(begin: -100, end: 0.0).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.700,
+              1.000,
+              curve: Curves.bounceOut,
             ),
           ),
         );
@@ -48,6 +88,9 @@ class WebPageEnterAnimation {
   final Animation fadeNameAnimation;
   final Animation backgroundOpacity;
   final Animation pictureSize;
-
+  final Animation navBtnAnimation1;
+  final Animation navBtnAnimation2;
+  final Animation navBtnAnimation3;
+  final Animation navBtnAnimation4;
   final Size size;
 }

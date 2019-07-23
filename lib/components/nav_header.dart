@@ -1,8 +1,15 @@
 import 'package:flutter_web/material.dart';
+import 'package:kt_website/animations/animations.dart';
 import 'components.dart';
 import 'package:kt_website/utils/utils.dart';
 
 class NavHeader extends StatelessWidget {
+  NavHeader(this.controller, this.size)
+      : animation = WebPageEnterAnimation(controller, size);
+
+  final AnimationController controller;
+  final WebPageEnterAnimation animation;
+  final Size size;
   Widget build(BuildContext context) {
     return ResponsiveWidget(
       largeScreen: Row(
@@ -16,17 +23,41 @@ class NavHeader extends StatelessWidget {
           if (!ResponsiveWidget.isSmallScreen(context))
             Row(
               children: <Widget>[
-                FlatButton(
-                  child: Text("hello"),
-                  onPressed: () {},
+                Transform(
+                  transform: Matrix4.translationValues(
+                      0.0, animation.navBtnAnimation1.value, 0.0),
+                  child: NavButton(
+                    onPressed: () {},
+                    color: Colors.white,
+                    text: "Education",
+                  ),
                 ),
-                FlatButton(
-                  child: Text("hello"),
-                  onPressed: () {},
+                Transform(
+                  transform: Matrix4.translationValues(
+                      0.0, animation.navBtnAnimation2.value, 0.0),
+                  child: NavButton(
+                    onPressed: () {},
+                    color: Colors.white,
+                    text: "  Work  ",
+                  ),
                 ),
-                FlatButton(
-                  child: Text("hello"),
-                  onPressed: () {},
+                Transform(
+                  transform: Matrix4.translationValues(
+                      0.0, animation.navBtnAnimation3.value, 0.0),
+                  child: NavButton(
+                    onPressed: () {},
+                    color: Colors.white,
+                    text: "Projects",
+                  ),
+                ),
+                Transform(
+                  transform: Matrix4.translationValues(
+                      0.0, animation.navBtnAnimation4.value, 0.0),
+                  child: NavButton(
+                    onPressed: () {},
+                    color: Colors.white,
+                    text: " Contact ",
+                  ),
                 ),
               ],
             )
