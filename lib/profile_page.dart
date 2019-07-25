@@ -12,19 +12,6 @@ class ProfilePage extends StatelessWidget {
   final AnimationController controller;
   final WebPageEnterAnimation animation;
   final Size size;
-
-  List<String> tests = [
-    "terve",
-    "terve",
-    "terve",
-    "terve",
-    "terve",
-    "terve",
-    "terve",
-    "terve",
-    "terve",
-  ];
-
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -71,35 +58,10 @@ class ProfilePage extends StatelessWidget {
                               alignment: Alignment.center,
                               child: ProfilePicture(),
                             ),
-                            Container(
-                              width: 300,
-                              height: 300,
-                              child: AnimatedList(
-                                scrollDirection: Axis.horizontal,
-                                initialItemCount: tests.length,
-                                itemBuilder: (context, index, animation) {
-                                  return SlideTransition(
-                                    position: animation.drive(
-                                      Tween<Offset>(
-                                        begin: Offset(50, 50),
-                                        end: Offset(0.0, 0.0),
-                                      ),
-                                    ),
-                                    child: Card(
-                                      child: Center(
-                                        child: Text(
-                                          tests[index],
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                              ),
-                            )
                           ],
                         ),
 
-                        // ProfileInfo(),
+                        //ProfileInfo(),
                         //SocialLinks(),
                       ],
                     ),
