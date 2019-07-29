@@ -10,21 +10,7 @@ class ThingsList extends StatefulWidget {
 
 class _ThingsListState extends State<ThingsList> with TickerProviderStateMixin {
   StreamController<int> streamController = StreamController.broadcast();
-  AnimationController _controller;
-  Animation<Offset> _offsetFloat;
-  Duration _duration = Duration(milliseconds: 300);
-  @override
-  void initState() {
-    super.initState();
-
-    _controller = AnimationController(
-      vsync: this,
-      duration: _duration,
-    );
-
-    _offsetFloat = Tween<Offset>(begin: Offset(-1.0, 0.0), end: Offset.zero)
-        .animate(_controller);
-  }
+  Duration _duration = Duration(milliseconds: 500);
 
   @override
   void dispose() {
@@ -40,10 +26,13 @@ class _ThingsListState extends State<ThingsList> with TickerProviderStateMixin {
     }
   }
 
-  List<Widget> _children = [
-    Text("terve"),
-    Text("terve"),
-    Text("terve"),
+  final List<Widget> _children = [
+    const Text("terve"),
+    const Text("terve"),
+    const Text("terve"),
+    const Text("terve"),
+    const Text("terve"),
+    const Text("terve"),
   ];
   @override
   Widget build(BuildContext context) {
