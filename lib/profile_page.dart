@@ -47,7 +47,6 @@ class ProfilePage extends StatelessWidget {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
                             Transform(
                               transform: Matrix4.diagonal3Values(
@@ -58,6 +57,7 @@ class ProfilePage extends StatelessWidget {
                               alignment: Alignment.center,
                               child: ProfilePicture(),
                             ),
+                            ThingsList(),
                           ],
                         ),
 
