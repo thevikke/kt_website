@@ -1,4 +1,3 @@
-import 'package:flutter_web/cupertino.dart';
 import 'package:flutter_web/material.dart';
 import 'package:flutter_web/rendering.dart';
 import 'animations/animations.dart';
@@ -57,7 +56,8 @@ class ProfilePage extends StatelessWidget {
                               alignment: Alignment.center,
                               child: ProfilePicture(),
                             ),
-                            ThingsList(),
+                            AccomplishmentsList(
+                                AppStateContainer.of(context).state.pageTitle),
                           ],
                         ),
 

@@ -2,6 +2,7 @@ import 'package:flutter_web/material.dart';
 import 'package:kt_website/animations/animations.dart';
 import 'components.dart';
 import 'package:kt_website/utils/utils.dart';
+import 'package:kt_website/models/models.dart';
 
 class NavHeader extends StatelessWidget {
   NavHeader(this.controller, this.size)
@@ -29,7 +30,9 @@ class NavHeader extends StatelessWidget {
                   transform: Matrix4.translationValues(
                       0.0, animation.navBtnAnimation1.value, 0.0),
                   child: NavButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      AppStateContainer.of(context).changePage(Page.EDUCATION);
+                    },
                     color: Colors.white,
                     text: "Education",
                   ),
@@ -38,7 +41,9 @@ class NavHeader extends StatelessWidget {
                   transform: Matrix4.translationValues(
                       0.0, animation.navBtnAnimation2.value, 0.0),
                   child: NavButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      AppStateContainer.of(context).changePage(Page.WORK);
+                    },
                     color: Colors.white,
                     text: "  Work  ",
                   ),
@@ -47,7 +52,9 @@ class NavHeader extends StatelessWidget {
                   transform: Matrix4.translationValues(
                       0.0, animation.navBtnAnimation3.value, 0.0),
                   child: NavButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      AppStateContainer.of(context).changePage(Page.PROJECTS);
+                    },
                     color: Colors.white,
                     text: "Projects",
                   ),
@@ -56,7 +63,9 @@ class NavHeader extends StatelessWidget {
                   transform: Matrix4.translationValues(
                       0.0, animation.navBtnAnimation4.value, 0.0),
                   child: NavButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      AppStateContainer.of(context).changePage(Page.CONTACT);
+                    },
                     color: Colors.white,
                     text: " Contact ",
                   ),

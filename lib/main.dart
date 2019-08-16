@@ -1,7 +1,7 @@
 import 'package:flutter_web/material.dart';
-import 'package:kt_website/animations/animations.dart';
 import 'package:kt_website/profile_page.dart';
-import 'package:flutter_web_ui/ui.dart' as ui;
+
+import 'components/components.dart';
 
 main() async {
   runApp(
@@ -11,7 +11,9 @@ main() async {
           brightness: Brightness.dark,
           primaryColor: Colors.black,
           fontFamily: "GoogleSansRegular"),
-      home: App(),
+      home: AppStateContainer(
+        child: App(),
+      ),
     ),
   );
 }
@@ -29,7 +31,7 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 4000),
+      duration: const Duration(milliseconds: 100),
       vsync: this,
     );
     _controller.forward();
