@@ -1,5 +1,5 @@
 class Project {
-  DateTime date;
+  String date;
   String title;
   String text;
   String imageUrl;

@@ -22,7 +22,7 @@ class WebPageEnterAnimation {
             ),
           ),
         ),
-        backgroundOpacity = Tween(begin: 1.0, end: 0.4).animate(
+        backgroundOpacity = Tween(begin: 1.0, end: 0.7).animate(
           CurvedAnimation(
             parent: controller,
             curve: Interval(

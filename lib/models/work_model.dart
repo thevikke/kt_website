@@ -1,6 +1,6 @@
 class Work {
-  DateTime startTime;
-  DateTime endTime;
+  String startTime;
+  String endTime;
   String title;
   String text;
   String imageUrl;
