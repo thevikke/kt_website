@@ -56,8 +56,7 @@ class ProfilePage extends StatelessWidget {
                               alignment: Alignment.center,
                               child: ProfilePicture(),
                             ),
-                            AccomplishmentsList(
-                                AppStateContainer.of(context).state.pageTitle),
+                            AccomplishmentsList(),
                           ],
                         ),
 

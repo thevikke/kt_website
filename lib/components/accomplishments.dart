@@ -1,22 +1,16 @@
 import 'package:flutter_web/material.dart';
 import 'package:flutter_web/widgets.dart';
+import 'package:kt_website/models/models.dart';
 
 import 'components.dart';
 
 class AccomplishmentsList extends StatelessWidget {
-  AccomplishmentsList(this.title);
-  final String title;
-  final List<String> _children = [
-    "terve",
-    "terve",
-    "terve",
-    "terve",
-    "terve",
-    "terve",
-  ];
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
+    final state = AppStateContainer.of(context).state;
+    final data = Data();
+
     return Stack(
       alignment: Alignment.center,
       children: <Widget>[
@@ -25,23 +19,24 @@ class AccomplishmentsList extends StatelessWidget {
             color: Colors.white30,
             borderRadius: BorderRadius.circular(0),
           ),
-          width: size.width / 2.8,
           height: size.height / 2.2,
+          width: size.width / 3.0,
         ),
         Column(
           children: <Widget>[
             Column(
               children: <Widget>[
                 Text(
-                  title,
+                  state.pageTitle,
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 HorizontalLine(
-                    start: Offset(-size.width / 10, 0),
-                    end: Offset(size.width / 10, 0)),
+                  start: Offset(-size.width / 10, 0),
+                  end: Offset(size.width / 10, 0),
+                ),
               ],
             ),
             SizedBox(
@@ -49,16 +44,29 @@ class AccomplishmentsList extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.only(top: 10),
-              width: size.width / 3.0,
+              width: size.width / 3.2,
               height: size.height / 3.5,
               child: ListView.builder(
                 padding: EdgeInsets.all(10),
                 scrollDirection: Axis.horizontal,
-                itemCount: _children.length,
+                itemCount: ,
                 itemBuilder: (context, index) {
+                  Color color, textColor;
+                  if (index == 0) {
+                    color = Colors.indigo[600];
+                    textColor = Colors.white;
+                  } else {
+                    color = Colors.white;
+                    textColor = Colors.black;
+                  }
                   return Padding(
                     padding: EdgeInsets.only(left: size.height / 35),
-                    child: ListItem(_children[index]),
+                    child: ListItem(
+                      text: ,
+                      title: ,
+                      color: color,
+                      textColor: textColor,
+                    ),
                   );
                 },
               ),
@@ -71,31 +79,34 @@ class AccomplishmentsList extends StatelessWidget {
 }
 
 class ListItem extends StatelessWidget {
-  const ListItem(this.text);
+  const ListItem({this.text, this.title, this.color, this.textColor});
   final String text;
+  final String title;
+  final Color textColor;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      width: size.width / 10,
+      width: size.width / 7,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(0),
         ),
         elevation: 4,
-        color: Colors.white,
+        color: color,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(
-                  top: 20.0, left: 8.0, right: 8.0, bottom: 0),
+                  top: 25.0, left: 8.0, right: 8.0, bottom: 0),
               child: Text(
                 "Heinola Lukio",
                 style: TextStyle(
                     fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,
+                    color: textColor),
               ),
             ),
             Expanded(
@@ -103,8 +114,8 @@ class ListItem extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   "I went to College in Heinola Lukio",
-                  style: TextStyle(
-                      color: Colors.black, fontStyle: FontStyle.italic),
+                  style:
+                      TextStyle(fontStyle: FontStyle.normal, color: textColor),
                 ),
               ),
             ),
@@ -112,7 +123,7 @@ class ListItem extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
               child: Text(
                 "2010 - 2013",
-                style: TextStyle(color: Colors.grey[700]),
+                style: TextStyle(color: Colors.grey[400]),
               ),
             ),
           ],
