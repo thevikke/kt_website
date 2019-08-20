@@ -13,6 +13,10 @@ class AccomplishmentsList extends StatelessWidget {
     List<Information> list;
     if (state.pageState == Page.EDUCATION) {
       list = data.educations;
+    } else if (state.pageState == Page.WORK) {
+      list = data.work;
+    } else if (state.pageState == Page.PROJECTS) {
+      list = data.projects;
     } else if (state.pageState == Page.CONTACT) {
       list = data.contacts;
     }
@@ -65,14 +69,14 @@ class AccomplishmentsList extends StatelessWidget {
                   if (index == 0 && state.pageState == Page.EDUCATION) {
                     color = Colors.indigo[600];
                     textColor = Colors.white;
-                  } else if (index == 0 && state.pageState == Page.PROJECTS) {
-                    color = Colors.blue;
-                    textColor = Colors.white;
                   } else if (index == 0 && state.pageState == Page.WORK) {
-                    color = Colors.cyan;
+                    color = Colors.blue[600];
+                    textColor = Colors.white;
+                  } else if (index == 0 && state.pageState == Page.PROJECTS) {
+                    color = Colors.red;
                     textColor = Colors.white;
                   } else if (index == 0 && state.pageState == Page.CONTACT) {
-                    color = Colors.green;
+                    color = Colors.blueAccent;
                     textColor = Colors.white;
                   } else {
                     color = Colors.white;

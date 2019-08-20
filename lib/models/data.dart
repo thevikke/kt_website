@@ -22,12 +22,29 @@ class Data {
         text:
             "I went to college in Heinola Lukio, the town I was born in. From college I got many lifelong friends and learned many usefull skills."),
   ];
+  List<Information> work = [
+    Information(
+        startTime: "",
+        endTime: "",
+        title: "Contact Information",
+        text:
+            "Kristian Tuusjärvi\n\n+358 40 526 4140\n\nkristian.tuusjarvi@gmail.com"),
+  ];
+
+  List<Information> projects = [
+    Information(
+        startTime: "",
+        endTime: "",
+        title: "Contact Information",
+        text:
+            "Kristian Tuusjärvi\n\n+358 40 526 4140\n\nkristian.tuusjarvi@gmail.com"),
+  ];
   List<Information> contacts = [
     Information(
         startTime: "",
         endTime: "",
         title: "Contact Information",
         text:
-            "Kristian Tuusjärvi, +358 40 526 4140, kristian.tuusjarvi@gmail.com"),
+            "Kristian Tuusjärvi\n\n+358 40 526 4140\n\nkristian.tuusjarvi@gmail.com"),
   ];
 }
