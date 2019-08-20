@@ -10,7 +10,12 @@ class AccomplishmentsList extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final state = AppStateContainer.of(context).state;
     final data = Data();
-
+    List<Information> list;
+    if (state.pageState == Page.EDUCATION) {
+      list = data.educations;
+    } else if (state.pageState == Page.CONTACT) {
+      list = data.contacts;
+    }
     return Stack(
       alignment: Alignment.center,
       children: <Widget>[
@@ -46,24 +51,40 @@ class AccomplishmentsList extends StatelessWidget {
               padding: EdgeInsets.only(top: 10),
               width: size.width / 3.2,
               height: size.height / 3.5,
-              child: ListView.builder(
+              child: ListView.separated(
+                separatorBuilder: (context, index) {
+                  return Center(
+                    child: Icon(Icons.arrow_left),
+                  );
+                },
                 padding: EdgeInsets.all(10),
                 scrollDirection: Axis.horizontal,
-                itemCount: ,
+                itemCount: list.length,
                 itemBuilder: (context, index) {
                   Color color, textColor;
-                  if (index == 0) {
+                  if (index == 0 && state.pageState == Page.EDUCATION) {
                     color = Colors.indigo[600];
+                    textColor = Colors.white;
+                  } else if (index == 0 && state.pageState == Page.PROJECTS) {
+                    color = Colors.blue;
+                    textColor = Colors.white;
+                  } else if (index == 0 && state.pageState == Page.WORK) {
+                    color = Colors.cyan;
+                    textColor = Colors.white;
+                  } else if (index == 0 && state.pageState == Page.CONTACT) {
+                    color = Colors.green;
                     textColor = Colors.white;
                   } else {
                     color = Colors.white;
                     textColor = Colors.black;
                   }
+
                   return Padding(
                     padding: EdgeInsets.only(left: size.height / 35),
                     child: ListItem(
-                      text: ,
-                      title: ,
+                      text: list[index].text,
+                      title: list[index].title,
+                      date: "${list[index].startTime} ${list[index].endTime}",
                       color: color,
                       textColor: textColor,
                     ),
@@ -79,9 +100,11 @@ class AccomplishmentsList extends StatelessWidget {
 }
 
 class ListItem extends StatelessWidget {
-  const ListItem({this.text, this.title, this.color, this.textColor});
+  const ListItem(
+      {this.text, this.title, this.color, this.textColor, this.date});
   final String text;
   final String title;
+  final String date;
   final Color textColor;
   final Color color;
   @override
@@ -102,9 +125,9 @@ class ListItem extends StatelessWidget {
               padding: const EdgeInsets.only(
                   top: 25.0, left: 8.0, right: 8.0, bottom: 0),
               child: Text(
-                "Heinola Lukio",
+                title,
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: textColor),
               ),
@@ -112,17 +135,19 @@ class ListItem extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "I went to College in Heinola Lukio",
-                  style:
-                      TextStyle(fontStyle: FontStyle.normal, color: textColor),
+                child: SingleChildScrollView(
+                  child: Text(
+                    text,
+                    style: TextStyle(
+                        fontStyle: FontStyle.normal, color: textColor),
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 8.0, bottom: 8.0),
               child: Text(
-                "2010 - 2013",
+                date,
                 style: TextStyle(color: Colors.grey[400]),
               ),
             ),
