@@ -89,6 +89,7 @@ class AccomplishmentsList extends StatelessWidget {
                       text: list[index].text,
                       title: list[index].title,
                       date: "${list[index].startTime} ${list[index].endTime}",
+                      imageUrl: list[index].imageUrl,
                       color: color,
                       textColor: textColor,
                     ),
@@ -105,29 +106,40 @@ class AccomplishmentsList extends StatelessWidget {
 
 class ListItem extends StatelessWidget {
   const ListItem(
-      {this.text, this.title, this.color, this.textColor, this.date});
+      {this.text,
+      this.title,
+      this.color,
+      this.textColor,
+      this.date,
+      this.imageUrl = ""});
   final String text;
   final String title;
   final String date;
+  final String imageUrl;
   final Color textColor;
   final Color color;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      width: size.width / 7,
+      width: size.width / 8,
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(0),
         ),
         elevation: 4,
         color: color,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: <Widget>[
             Padding(
+              padding: const EdgeInsets.all(8),
+              child: Image(
+                image: AssetImage(imageUrl ?? ""),
+              ),
+            ),
+            Padding(
               padding: const EdgeInsets.only(
-                  top: 25.0, left: 8.0, right: 8.0, bottom: 0),
+                  top: 10.0, left: 8.0, right: 8.0, bottom: 0),
               child: Text(
                 title,
                 style: TextStyle(
@@ -136,16 +148,11 @@ class ListItem extends StatelessWidget {
                     color: textColor),
               ),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SingleChildScrollView(
-                  child: Text(
-                    text,
-                    style: TextStyle(
-                        fontStyle: FontStyle.normal, color: textColor),
-                  ),
-                ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                text,
+                style: TextStyle(fontStyle: FontStyle.normal, color: textColor),
               ),
             ),
             Padding(
