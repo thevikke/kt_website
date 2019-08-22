@@ -42,11 +42,11 @@ class Data {
         text:
             "During my studies I worked as a trainee at Tuusplan Oy. My work was QT development with C++ and C. I also learned the basics of automation."),
     Information(
-        startTime: "2014 -",
-        endTime: "2018",
-        title: "Tuusplan Oy, trainee",
+        startTime: "2010 -",
+        endTime: "2013",
+        title: "Heinolan Kipinä",
         text:
-            "During my studies I worked as a trainee at Tuusplan Oy. My work was QT development with C++ and C. I also learned the basics of automation."),
+            "I worked as a helper in a machine rental shop in Heinola. I worked at Kipinä for three summers while in High School. The work was very much hands on and it taught me how to use my hands."),
   ];
 
   List<Information> projects = [

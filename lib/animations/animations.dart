@@ -27,7 +27,7 @@ class WebPageEnterAnimation {
             parent: controller,
             curve: Interval(
               0.000,
-              1.000,
+              0.600,
               curve: Curves.decelerate,
             ),
           ),

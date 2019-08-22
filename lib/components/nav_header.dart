@@ -13,67 +13,73 @@ class NavHeader extends StatelessWidget {
   final Size size;
   Widget build(BuildContext context) {
     return ResponsiveWidget(
-      largeScreen: Row(
-        mainAxisAlignment: ResponsiveWidget.isSmallScreen(context)
-            ? MainAxisAlignment.center
-            : MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Opacity(
-            opacity: animation.logoAnimation.value,
-            child: Logo(),
-          ),
-          if (!ResponsiveWidget.isSmallScreen(context))
-            Row(
-              children: <Widget>[
-                Transform(
-                  transform: Matrix4.translationValues(
-                      0.0, animation.navBtnAnimation1.value, 0.0),
-                  child: NavButton(
-                    onPressed: () {
-                      AppStateContainer.of(context).changePage(Page.EDUCATION);
-                    },
-                    color: Colors.white,
-                    text: "Education",
-                  ),
+      largeScreen: _buildLargeScreen(context),
+    );
+  }
+
+  Widget _buildLargeScreen(BuildContext context) {
+    return Row(
+      mainAxisAlignment: ResponsiveWidget.isSmallScreen(context)
+          ? MainAxisAlignment.spaceAround
+          : MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Opacity(
+          opacity: animation.logoAnimation.value,
+          child: Logo(),
+        ),
+        //! BuildSmallScreen
+        Icon(Icons.menu),
+        if (!ResponsiveWidget.isSmallScreen(context))
+          Row(
+            children: <Widget>[
+              Transform(
+                transform: Matrix4.translationValues(
+                    0.0, animation.navBtnAnimation1.value, 0.0),
+                child: NavButton(
+                  onPressed: () {
+                    AppStateContainer.of(context).changePage(Page.EDUCATION);
+                  },
+                  color: Colors.white,
+                  text: "Education",
                 ),
-                Transform(
-                  transform: Matrix4.translationValues(
-                      0.0, animation.navBtnAnimation2.value, 0.0),
-                  child: NavButton(
-                    onPressed: () {
-                      AppStateContainer.of(context).changePage(Page.WORK);
-                    },
-                    color: Colors.white,
-                    text: "  Work  ",
-                  ),
+              ),
+              Transform(
+                transform: Matrix4.translationValues(
+                    0.0, animation.navBtnAnimation2.value, 0.0),
+                child: NavButton(
+                  onPressed: () {
+                    AppStateContainer.of(context).changePage(Page.WORK);
+                  },
+                  color: Colors.white,
+                  text: "  Work  ",
                 ),
-                Transform(
-                  transform: Matrix4.translationValues(
-                      0.0, animation.navBtnAnimation3.value, 0.0),
-                  child: NavButton(
-                    onPressed: () {
-                      AppStateContainer.of(context).changePage(Page.PROJECTS);
-                    },
-                    color: Colors.white,
-                    text: "Projects",
-                  ),
+              ),
+              Transform(
+                transform: Matrix4.translationValues(
+                    0.0, animation.navBtnAnimation3.value, 0.0),
+                child: NavButton(
+                  onPressed: () {
+                    AppStateContainer.of(context).changePage(Page.PROJECTS);
+                  },
+                  color: Colors.white,
+                  text: "Projects",
                 ),
-                Transform(
-                  transform: Matrix4.translationValues(
-                      0.0, animation.navBtnAnimation4.value, 0.0),
-                  child: NavButton(
-                    onPressed: () {
-                      AppStateContainer.of(context).changePage(Page.CONTACT);
-                    },
-                    color: Colors.white,
-                    text: " Contact ",
-                  ),
+              ),
+              Transform(
+                transform: Matrix4.translationValues(
+                    0.0, animation.navBtnAnimation4.value, 0.0),
+                child: NavButton(
+                  onPressed: () {
+                    AppStateContainer.of(context).changePage(Page.CONTACT);
+                  },
+                  color: Colors.white,
+                  text: " Contact ",
                 ),
-              ],
-            )
-        ],
-      ),
+              ),
+            ],
+          )
+      ],
     );
   }
 }

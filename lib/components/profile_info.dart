@@ -7,11 +7,11 @@ class ProfilePicture extends StatelessWidget {
     return Container(
       child: Container(
         height: ResponsiveWidget.isSmallScreen(context)
-            ? MediaQuery.of(context).size.height * 0.20
-            : MediaQuery.of(context).size.width * 0.20,
+            ? MediaQuery.of(context).size.height * 0.15
+            : MediaQuery.of(context).size.width * 0.15,
         width: ResponsiveWidget.isSmallScreen(context)
-            ? MediaQuery.of(context).size.height * 0.20
-            : MediaQuery.of(context).size.width * 0.20,
+            ? MediaQuery.of(context).size.height * 0.15
+            : MediaQuery.of(context).size.width * 0.15,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           image: DecorationImage(
