@@ -51,11 +51,33 @@ class Data {
 
   List<Information> projects = [
     Information(
-        startTime: "",
+        startTime: "2019",
         endTime: "",
-        title: "Helsinki Events API app //!",
+        title: "Flutter web install guide",
         text:
-            "Kristian Tuusjärvi\n\n+358 40 526 4140\n\nkristian.tuusjarvi@gmail.com"),
+            "I made guide on how to install Flutter web on Windows. \n\nLink: https://www.youtube.com/watch?v=dvCE7eSgF6A",
+        imageUrl: "flutterwebinstall.PNG"),
+    Information(
+        startTime: "2019",
+        endTime: "",
+        title: "Flutter install guide",
+        text:
+            "I made guide to show how to install Flutter on Windows. \n\nLink: https://www.youtube.com/watch?v=TDBlhWcFEHw",
+        imageUrl: "flutterinstall.PNG"),
+    Information(
+        startTime: "2019",
+        endTime: "",
+        title: "Speed reader application with Flutter",
+        text:
+            "I made video series on how to create simple speed reading application with Flutter framework. With Flutter it is easy to make applications for Android and iOS. \n\nLink: https://www.youtube.com/watch?v=eW1PDfVFUQk",
+        imageUrl: "speedreader.PNG"),
+    Information(
+        startTime: "2018",
+        endTime: "",
+        title: "Helsinki Events API Android app",
+        text:
+            "I made application that shows Helsinki API events. User can search for events depending on date and place. \n\nLink: https://www.youtube.com/watch?v=lzT9cCsjT8o",
+        imageUrl: "helsinkievent.PNG"),
     Information(
         startTime: "2017",
         endTime: "",
@@ -68,14 +90,14 @@ class Data {
         endTime: "",
         title: "Game Jam 2017, Microwave",
         text:
-            "I developed Microwave game in Game Jam 2017 with my friend. The idea is to collect food to extend the time in upper right corner. The game also features our selfmade soundtrack. \n\nLink: https://www.youtube.com/watch?v=o8VeRzeK1Y0",
+            "I developed Microwave game in Game Jam 2017 with my friend. The idea is to collect food to extend the time in upper right corner. The game also features our selfmade soundtrack. Made with Unity. \n\nLink: https://www.youtube.com/watch?v=o8VeRzeK1Y0",
         imageUrl: "microwave.PNG"),
     Information(
         startTime: "2016",
         endTime: "",
         title: "Tough Guy Duck",
         text:
-            "This platform game I made as a school project with my friends. It has all the basic features of platformer game. \n\nLink: https://www.youtube.com/watch?v=l0TT27O4tUs",
+            "This platform game I made as a school project with my friends. It has all the basic features of platformer game. Made with Unity. \n\nLink: https://www.youtube.com/watch?v=l0TT27O4tUs",
         imageUrl: "tough.PNG"),
   ];
   List<Information> contacts = [

@@ -135,6 +135,7 @@ class ListItem extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: Image(
                 image: AssetImage(imageUrl ?? ""),
+                height: imageUrl != null ? 150 : 0,
               ),
             ),
             Padding(
