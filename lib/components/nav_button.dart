@@ -12,14 +12,17 @@ class NavButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return OutlineButton(
-      splashColor: color,
-      child: Text(text),
-      borderSide: BorderSide(
-        color: color,
+    return Container(
+      width: 100,
+      child: OutlineButton(
+        splashColor: color,
+        child: Text(text),
+        borderSide: BorderSide(
+          color: color,
+        ),
+        onPressed: onPressed,
+        highlightedBorderColor: color,
       ),
-      onPressed: onPressed,
-      highlightedBorderColor: color,
     );
   }
 }

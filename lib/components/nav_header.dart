@@ -28,10 +28,31 @@ class NavHeader extends StatelessWidget {
           opacity: animation.logoAnimation.value,
           child: Logo(),
         ),
-        //! BuildSmallScreen
-        Icon(Icons.menu),
+        if (ResponsiveWidget.isSmallScreen(context))
+          IconButton(
+            onPressed: () {
+              Scaffold.of(context).openEndDrawer();
+            },
+            icon: Icon(Icons.menu),
+          ),
         if (!ResponsiveWidget.isSmallScreen(context))
-          Row(
+          NavigationRow(controller, size),
+      ],
+    );
+  }
+}
+
+class NavigationRow extends StatelessWidget {
+  NavigationRow(this.controller, this.size)
+      : animation = WebPageEnterAnimation(controller, size);
+
+  final AnimationController controller;
+  final WebPageEnterAnimation animation;
+  final Size size;
+  @override
+  Widget build(BuildContext context) {
+    return !ResponsiveWidget.isSmallScreen(context)
+        ? Row(
             children: <Widget>[
               Transform(
                 transform: Matrix4.translationValues(
@@ -52,7 +73,7 @@ class NavHeader extends StatelessWidget {
                     AppStateContainer.of(context).changePage(Page.WORK);
                   },
                   color: Colors.white,
-                  text: "  Work  ",
+                  text: "Work",
                 ),
               ),
               Transform(
@@ -74,12 +95,47 @@ class NavHeader extends StatelessWidget {
                     AppStateContainer.of(context).changePage(Page.CONTACT);
                   },
                   color: Colors.white,
-                  text: " Contact ",
+                  text: "Contact",
                 ),
               ),
             ],
           )
-      ],
-    );
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              NavButton(
+                onPressed: () {
+                  AppStateContainer.of(context).changePage(Page.EDUCATION);
+                  Navigator.of(context).pop();
+                },
+                color: Colors.white,
+                text: "Education",
+              ),
+              NavButton(
+                onPressed: () {
+                  AppStateContainer.of(context).changePage(Page.WORK);
+                  Navigator.of(context).pop();
+                },
+                color: Colors.white,
+                text: "Work",
+              ),
+              NavButton(
+                onPressed: () {
+                  AppStateContainer.of(context).changePage(Page.PROJECTS);
+                  Navigator.of(context).pop();
+                },
+                color: Colors.white,
+                text: "Projects",
+              ),
+              NavButton(
+                onPressed: () {
+                  AppStateContainer.of(context).changePage(Page.CONTACT);
+                  Navigator.of(context).pop();
+                },
+                color: Colors.white,
+                text: "Contact",
+              ),
+            ],
+          );
   }
 }

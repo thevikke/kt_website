@@ -122,6 +122,7 @@ class ListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
+      //!
       width: size.width / 8,
       child: Card(
         shape: RoundedRectangleBorder(
