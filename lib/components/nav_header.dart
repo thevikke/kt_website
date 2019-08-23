@@ -62,6 +62,7 @@ class NavigationRow extends StatelessWidget {
                     AppStateContainer.of(context).changePage(Page.EDUCATION);
                   },
                   color: Colors.white,
+                  splashColor: Colors.indigo[600],
                   text: "Education",
                 ),
               ),
@@ -73,6 +74,7 @@ class NavigationRow extends StatelessWidget {
                     AppStateContainer.of(context).changePage(Page.WORK);
                   },
                   color: Colors.white,
+                  splashColor: Colors.blue[600],
                   text: "Work",
                 ),
               ),
@@ -84,6 +86,7 @@ class NavigationRow extends StatelessWidget {
                     AppStateContainer.of(context).changePage(Page.PROJECTS);
                   },
                   color: Colors.white,
+                  splashColor: Colors.red,
                   text: "Projects",
                 ),
               ),
@@ -95,6 +98,7 @@ class NavigationRow extends StatelessWidget {
                     AppStateContainer.of(context).changePage(Page.CONTACT);
                   },
                   color: Colors.white,
+                  splashColor: Colors.blueAccent,
                   text: "Contact",
                 ),
               ),

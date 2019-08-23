@@ -158,7 +158,7 @@ class ProfilePage extends StatelessWidget {
         Text(
           "Hello! My name is",
           textScaleFactor: ResponsiveWidget.isSmallScreen(context) ? 1 : 2,
-          style: TextStyle(color: Colors.blue[600]),
+          style: TextStyle(color: Colors.blueAccent),
         ),
         Text(
           "Kristian Tuusjärvi",
@@ -185,7 +185,7 @@ class ProfilePage extends StatelessWidget {
             RaisedButton(
               shape: StadiumBorder(),
               child: Text("Contact"),
-              color: Colors.blue[600],
+              color: Colors.blueAccent,
               onPressed: () {
                 AppStateContainer.of(context).changePage(Page.CONTACT);
               },
