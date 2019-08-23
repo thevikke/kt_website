@@ -52,70 +52,69 @@ class ProfilePage extends StatelessWidget {
             ),
             SingleChildScrollView(
               child: AnimatedPadding(
-                duration: Duration(milliseconds: 500),
-                padding: EdgeInsets.all(MediaQuery.of(context).size.height *
-                    (ResponsiveWidget.isSmallScreen(context) ? 0.02 : 0.1)),
-                child: ResponsiveWidget.isSmallScreen(context)
-                    ? Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          NavHeader(controller, size),
-                          Transform(
-                            transform: Matrix4.diagonal3Values(
-                              animation.pictureSize.value,
-                              animation.pictureSize.value,
-                              1.0,
+                  duration: Duration(milliseconds: 500),
+                  padding: EdgeInsets.all(MediaQuery.of(context).size.height *
+                      (ResponsiveWidget.isSmallScreen(context) ? 0.02 : 0.1)),
+                  child: ResponsiveWidget.isLargeScreen(context)
+                      ? Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            NavHeader(controller, size),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.1,
                             ),
-                            alignment: Alignment.center,
-                            child: ProfilePicture(),
-                          ),
-                          Opacity(
-                            opacity: animation.logoAnimation.value,
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: profileData(context),
-                            ),
-                          ),
-                          Opacity(
-                              opacity: animation.logoAnimation.value,
-                              child: AccomplishmentsList()),
-                        ],
-                      )
-                    : Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          NavHeader(controller, size),
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.1,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Column(
-                                children: <Widget>[
-                                  Transform(
-                                    transform: Matrix4.diagonal3Values(
-                                      animation.pictureSize.value,
-                                      animation.pictureSize.value,
-                                      1.0,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Column(
+                                  children: <Widget>[
+                                    Transform(
+                                      transform: Matrix4.diagonal3Values(
+                                        animation.pictureSize.value,
+                                        animation.pictureSize.value,
+                                        1.0,
+                                      ),
+                                      alignment: Alignment.center,
+                                      child: ProfilePicture(),
                                     ),
-                                    alignment: Alignment.center,
-                                    child: ProfilePicture(),
-                                  ),
-                                  Opacity(
+                                    Opacity(
+                                      opacity: animation.logoAnimation.value,
+                                      child: profileData(context),
+                                    )
+                                  ],
+                                ),
+                                Opacity(
                                     opacity: animation.logoAnimation.value,
-                                    child: profileData(context),
-                                  )
-                                ],
+                                    child: AccomplishmentsList()),
+                              ],
+                            ),
+                          ],
+                        )
+                      : Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            NavHeader(controller, size),
+                            Transform(
+                              transform: Matrix4.diagonal3Values(
+                                animation.pictureSize.value,
+                                animation.pictureSize.value,
+                                1.0,
                               ),
-                              Opacity(
-                                  opacity: animation.logoAnimation.value,
-                                  child: AccomplishmentsList()),
-                            ],
-                          ),
-                        ],
-                      ),
-              ),
+                              alignment: Alignment.center,
+                              child: ProfilePicture(),
+                            ),
+                            Opacity(
+                              opacity: animation.logoAnimation.value,
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: profileData(context),
+                              ),
+                            ),
+                            Opacity(
+                                opacity: animation.logoAnimation.value,
+                                child: AccomplishmentsList()),
+                          ],
+                        )),
             ),
             Transform(
               transform: Matrix4.translationValues(
