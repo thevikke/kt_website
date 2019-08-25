@@ -28,13 +28,13 @@ class NavHeader extends StatelessWidget {
           opacity: animation.logoAnimation.value,
           child: Logo(),
         ),
-        if (ResponsiveWidget.isSmallScreen(context))
-          IconButton(
-            onPressed: () {
-              Scaffold.of(context).openEndDrawer();
-            },
-            icon: Icon(Icons.menu),
-          ),
+        // if (ResponsiveWidget.isSmallScreen(context))
+        //   IconButton(
+        //     onPressed: () {
+        //       Scaffold.of(context).openEndDrawer();
+        //     },
+        //     icon: Icon(Icons.menu),
+        //   ),
         if (!ResponsiveWidget.isSmallScreen(context))
           NavigationRow(controller, size),
       ],
@@ -98,7 +98,7 @@ class NavigationRow extends StatelessWidget {
                     AppStateContainer.of(context).changePage(Page.CONTACT);
                   },
                   color: Colors.white,
-                  splashColor: Colors.blueAccent,
+                  splashColor: Colors.green,
                   text: "Contact",
                 ),
               ),
@@ -108,6 +108,7 @@ class NavigationRow extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               NavButton(
+                splashColor: Colors.indigo[600],
                 onPressed: () {
                   AppStateContainer.of(context).changePage(Page.EDUCATION);
                   Navigator.of(context).pop();
@@ -116,6 +117,7 @@ class NavigationRow extends StatelessWidget {
                 text: "Education",
               ),
               NavButton(
+                splashColor: Colors.blue[600],
                 onPressed: () {
                   AppStateContainer.of(context).changePage(Page.WORK);
                   Navigator.of(context).pop();
@@ -124,6 +126,7 @@ class NavigationRow extends StatelessWidget {
                 text: "Work",
               ),
               NavButton(
+                splashColor: Colors.red,
                 onPressed: () {
                   AppStateContainer.of(context).changePage(Page.PROJECTS);
                   Navigator.of(context).pop();
@@ -132,6 +135,7 @@ class NavigationRow extends StatelessWidget {
                 text: "Projects",
               ),
               NavButton(
+                splashColor: Colors.green,
                 onPressed: () {
                   AppStateContainer.of(context).changePage(Page.CONTACT);
                   Navigator.of(context).pop();

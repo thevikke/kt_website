@@ -201,7 +201,7 @@ class ProfilePage extends StatelessWidget {
             RaisedButton(
               shape: StadiumBorder(),
               child: Text("Contact"),
-              color: Colors.blueAccent,
+              color: Colors.green,
               onPressed: () {
                 AppStateContainer.of(context).changePage(Page.CONTACT);
               },

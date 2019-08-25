@@ -81,7 +81,7 @@ class AccomplishmentsList extends StatelessWidget {
                     color = Colors.red;
                     textColor = Colors.white;
                   } else if (index == 0 && state.pageState == Page.CONTACT) {
-                    color = Colors.blueAccent;
+                    color = Colors.green;
                     textColor = Colors.white;
                   } else {
                     color = Colors.white;
