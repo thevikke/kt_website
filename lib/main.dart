@@ -31,7 +31,7 @@ class _AppState extends State<App> with SingleTickerProviderStateMixin {
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 100),
+      duration: const Duration(milliseconds: 3000),
       vsync: this,
     );
     _controller.forward();
