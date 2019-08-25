@@ -16,6 +16,22 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ResponsiveWidget(
       smallScreen: Scaffold(
+        floatingActionButton: ResponsiveWidget.isSmallScreen(context)
+            ? Builder(
+                builder: (context) {
+                  return FloatingActionButton(
+                    child: Icon(
+                      Icons.menu,
+                      color: Colors.white,
+                    ),
+                    backgroundColor: Colors.blueAccent,
+                    onPressed: () {
+                      Scaffold.of(context).openEndDrawer();
+                    },
+                  );
+                },
+              )
+            : null,
         endDrawer: Drawer(
           elevation: 0,
           child: Container(

@@ -1,6 +1,7 @@
 import 'package:flutter_web/material.dart';
 import 'package:flutter_web/widgets.dart';
 import 'package:kt_website/models/models.dart';
+import 'package:kt_website/utils/responsive_widget.dart';
 
 import 'components.dart';
 
@@ -28,8 +29,10 @@ class AccomplishmentsList extends StatelessWidget {
             color: Colors.white30,
             borderRadius: BorderRadius.circular(0),
           ),
-          height: size.height / 2.2,
-          width: size.width / 3.0,
+          height: 400,
+          width: ResponsiveWidget.isLargeScreen(context)
+              ? size.width / 3.0
+              : size.width,
         ),
         Column(
           children: <Widget>[
@@ -49,12 +52,14 @@ class AccomplishmentsList extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 20,
+              height: ResponsiveWidget.isLargeScreen(context) ? 20 : 0,
             ),
             Container(
               padding: EdgeInsets.only(top: 10),
-              width: size.width / 3.2,
-              height: size.height / 3.5,
+              width: ResponsiveWidget.isLargeScreen(context)
+                  ? size.width / 3.2
+                  : size.width / 1.1,
+              height: 300,
               child: ListView.separated(
                 separatorBuilder: (context, index) {
                   return Center(
@@ -123,7 +128,8 @@ class ListItem extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Container(
       //!
-      width: size.width / 8,
+      width: 250,
+
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(0),
