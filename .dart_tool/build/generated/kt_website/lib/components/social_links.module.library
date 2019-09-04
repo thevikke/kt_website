@@ -1,1 +1,0 @@
-{"isEntrypoint":true,"deps":["flutter_web|lib/material.dart","kt_website|lib/utils/utils.dart","kt_website|lib/components/components.dart"],"parts":[],"conditionalDeps":[],"sdkDeps":[],"hasMain":false}

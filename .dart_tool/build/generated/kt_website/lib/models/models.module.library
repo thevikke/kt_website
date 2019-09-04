@@ -1,1 +1,0 @@
-{"isEntrypoint":true,"deps":["kt_website|lib/models/app_state_model.dart","kt_website|lib/models/information_model.dart","kt_website|lib/models/data.dart"],"parts":[],"conditionalDeps":[],"sdkDeps":[],"hasMain":false}
