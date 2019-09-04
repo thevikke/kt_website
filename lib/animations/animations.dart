@@ -16,8 +16,8 @@ class WebPageEnterAnimation {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.200,
-              0.400,
+              0.150,
+              0.300,
               curve: Curves.ease,
             ),
           ),
@@ -36,8 +36,8 @@ class WebPageEnterAnimation {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.600,
-              0.800,
+              0.700,
+              1.000,
               curve: Curves.elasticOut,
             ),
           ),
@@ -86,26 +86,46 @@ class WebPageEnterAnimation {
           CurvedAnimation(
             parent: controller,
             curve: Interval(
+              0.500,
               0.700,
-              1.000,
               curve: Curves.easeIn,
             ),
           ),
         ),
-        listviewAnimation =
-            Tween<Offset>(begin: Offset(50, 50), end: Offset(0.0, 0.0)).animate(
+        listviewAnimation = Tween(begin: size.width, end: 0.0).animate(
           CurvedAnimation(
             parent: controller,
             curve: Interval(
-              0.500,
+              0.700,
+              0.900,
+              curve: Curves.ease,
+            ),
+          ),
+        ),
+        fABAnimation = Tween(begin: -size.height, end: 0.0).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.950,
               1.000,
-              curve: Curves.easeIn,
+              curve: Curves.ease,
+            ),
+          ),
+        ),
+        profileDataAnimation = Tween(begin: -size.width, end: 0.0).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: Interval(
+              0.600,
+              0.800,
+              curve: Curves.ease,
             ),
           ),
         );
 
   final AnimationController controller;
   final Animation slideAnimation;
+  final Animation fABAnimation;
   final Animation fadeNameAnimation;
   final Animation backgroundOpacity;
   final Animation pictureSize;
@@ -114,7 +134,8 @@ class WebPageEnterAnimation {
   final Animation navBtnAnimation3;
   final Animation navBtnAnimation4;
   final Animation logoAnimation;
-  final Animation<Offset> listviewAnimation;
+  final Animation listviewAnimation;
+  final Animation profileDataAnimation;
 
   final Size size;
 }

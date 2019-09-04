@@ -14,24 +14,34 @@ class ProfilePage extends StatelessWidget {
   final Size size;
   @override
   Widget build(BuildContext context) {
+    print(animation.fABAnimation.value);
     return ResponsiveWidget(
       smallScreen: Scaffold(
-        floatingActionButton: ResponsiveWidget.isSmallScreen(context)
-            ? Builder(
-                builder: (context) {
-                  return FloatingActionButton(
-                    child: Icon(
-                      Icons.menu,
-                      color: Colors.white,
-                    ),
-                    backgroundColor: Colors.blueAccent,
-                    onPressed: () {
-                      Scaffold.of(context).openEndDrawer();
-                    },
-                  );
-                },
-              )
-            : null,
+        floatingActionButton: AnimatedBuilder(
+          animation: controller,
+          builder: (context, widget) {
+            return Transform(
+              transform: Matrix4.translationValues(
+                  0.0, animation.fABAnimation.value, 0.0),
+              child: ResponsiveWidget.isSmallScreen(context)
+                  ? Builder(
+                      builder: (context) {
+                        return FloatingActionButton(
+                          child: Icon(
+                            Icons.menu,
+                            color: Colors.white,
+                          ),
+                          backgroundColor: Colors.white70,
+                          onPressed: () {
+                            Scaffold.of(context).openEndDrawer();
+                          },
+                        );
+                      },
+                    )
+                  : null,
+            );
+          },
+        ),
         endDrawer: Drawer(
           elevation: 0,
           child: Container(
@@ -93,15 +103,28 @@ class ProfilePage extends StatelessWidget {
                                       alignment: Alignment.center,
                                       child: ProfilePicture(),
                                     ),
-                                    Opacity(
-                                      opacity: animation.logoAnimation.value,
-                                      child: profileData(context),
-                                    )
+                                    Transform(
+                                      transform: Matrix4.translationValues(
+                                          animation.profileDataAnimation.value,
+                                          0.0,
+                                          0.0),
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: profileData(context),
+                                      ),
+                                    ),
                                   ],
                                 ),
-                                Opacity(
-                                    opacity: animation.logoAnimation.value,
-                                    child: AccomplishmentsList()),
+                                Transform(
+                                  transform: Matrix4.translationValues(
+                                      animation.listviewAnimation.value,
+                                      0.0,
+                                      0.0),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: AccomplishmentsList(),
+                                  ),
+                                ),
                               ],
                             ),
                           ],
@@ -119,15 +142,21 @@ class ProfilePage extends StatelessWidget {
                               alignment: Alignment.center,
                               child: ProfilePicture(),
                             ),
-                            Opacity(
-                              opacity: animation.logoAnimation.value,
+                            Transform(
+                              transform: Matrix4.translationValues(
+                                  animation.profileDataAnimation.value,
+                                  0.0,
+                                  0.0),
                               child: Padding(
                                 padding: const EdgeInsets.all(10.0),
                                 child: profileData(context),
                               ),
                             ),
-                            Opacity(
-                                opacity: animation.logoAnimation.value,
+                            Transform(
+                                transform: Matrix4.translationValues(
+                                    animation.listviewAnimation.value,
+                                    0.0,
+                                    0.0),
                                 child: AccomplishmentsList()),
                           ],
                         )),
